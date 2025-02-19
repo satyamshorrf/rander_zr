@@ -156,15 +156,15 @@ export default function Navbar() {
 
       {/* desktop  */}
       <header className="relative bg-white">
-        <p
-          className="flex h-10 items-center justify-center bg-pink-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
+        {/* <p
+          className="flex h-10 items-center justify-center bg-green-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
           style={{
-            backgroundColor: mode === "dark" ? "rgb(62 64 66)" : "",
+            backgroundColor: mode === "dark" ? "rgb(0 64 0)" : "",
             color: mode === "dark" ? "white" : "",
           }}
         >
-          Get free delivery on orders over ₹300
-        </p>
+     Home services provided within 30 minutes at your doorstep.
+        </p> */}
 
         <nav
           aria-label="Top"
