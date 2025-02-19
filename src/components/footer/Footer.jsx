@@ -1,98 +1,161 @@
-import { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import myContext from '../../context/data/myContext'
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Facebook, Youtube, Instagram } from "lucide-react";
+import myContext from "../../context/data/myContext";
 
-export default function Footer() {
-    const context = useContext(myContext)
-    const { mode } = context
-    return (
-        <footer className="text-gray-600 body-font bg-gray-300" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }}>
-            <div className="container px-5 py-24 mx-auto" >
-                <div className="flex flex-wrap md:text-left text-center order-first">
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>CATEGORIES</h2>
-                        <nav className="list-none mb-10">
-                            <li>
-                                <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Home</a>
-                            </li>
-                            <li>
-                                <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Order</a>
-                            </li>
-                            <li>
-                                <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Local For Vocal</a>
-                            </li>
-                            <li>
-                                <a className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Cart</a>
-                            </li>
-                        </nav>
-                    </div>
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase" style={{ color: mode === 'dark' ? 'white' : '' }}>Customer Service</h2>
-                        <nav className="list-none mb-10">
-                            <li>
-                                <Link to={'/returnpolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Return Policy</Link>
-                            </li>
-                            <li>
-                                <Link to={'/about'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>About</Link>
-                            </li>
-                            <li>
-                                <Link to={'/contact'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Contact Us</Link>
-                            </li>
-                        </nav>
-                    </div>
+const Footer = () => {
+  const context = useContext(myContext);
+  const { mode } = context;
 
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style={{ color: mode === 'dark' ? 'white' : '' }}>Services</h2>
-                        <nav className="list-none mb-10">
-                            <li>
-                                <Link to={'/privacypolicy'} className="text-gray-600 hover:text-gray-800" style={{ color: mode === 'dark' ? 'white' : '' }}>Privacy</Link>
-                            </li>
+  const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
-                        </nav>
-                    </div>
-                    <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-                        <img src="https://ecommerce-sk.vercel.app/pay.png" alt="" />
-                    </div>
-                </div>
+  const ScrollToTopLink = ({ to, children, className }) => (
+    <Link to={to} className={className} onClick={handleClick}>
+      {children}
+    </Link>
+  );
 
-            </div>
+  return (
+    <footer
+      className="py-8 px-4 sm:px-6 lg:px-8"
+      style={{
+        backgroundColor: mode === "dark" ? "#2E3137" : "#F3F4F6",
+        color: mode === "dark" ? "white" : "black",
+      }}
+    >
+      <div className="max-w-6xl mx-auto lg:text-left">
+        <div className="flex flex-col items-center lg:items-start">
+          <ScrollToTopLink
+            to="/"
+            className="text-2xl font-bold items-center space-x-2 flex justify-center lg:justify-start"
+          >
+            <img
+              src="https://res.cloudinary.com/dt5913iha/image/upload/v1738552794/ic_launcher_q4uzg5.png"
+              alt=""
+              height={50}
+              width={50}
+            />
+            Zytra Relif
+          </ScrollToTopLink>
+          <p className="mt-4 text-sm sm:text-base text-center lg:text-left">
+            Your trusted platform for professional home services.
+          </p>
+        </div>
+      </div>
 
-            <div className="bg-gray-200" style={{ backgroundColor: mode === 'dark' ? 'rgb(55 57 61)' : '', color: mode === 'dark' ? 'white' : '', }}>
-                <div className="container px-5 py-3 mx-auto flex items-center sm:flex-row flex-col">
-                    <Link to={'/'} className='flex'>
-                        <div className="flex ">
-                            <h1 className=' text-2xl font-bold text-black  px-2 py-1 rounded' style={{ color: mode === 'dark' ? 'white' : '', }}>E-Bharat</h1>
-                        </div>
-                    </Link>
-                    <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4" style={{ color: mode === 'dark' ? 'white' : '' }}>© 2023 E-bharat —
-                        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank" style={{ color: mode === 'dark' ? 'white' : '' }}>www.ebharat.com</a>
-                    </p>
-                    <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-                        <a className="text-gray-500">
-                            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} className="w-5 h-5" viewBox="0 0 24 24">
-                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                            </svg>
-                        </a>
-                        <a className="ml-3 text-gray-500">
-                            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} className="w-5 h-5" viewBox="0 0 24 24">
-                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-                            </svg>
-                        </a>
-                        <a className="ml-3 text-gray-500">
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} className="w-5 h-5" viewBox="0 0 24 24">
-                                <rect width={20} height={20} x={2} y={2} rx={5} ry={5} />
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
-                            </svg>
-                        </a>
-                        <a className="ml-3 text-gray-500">
-                            <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={0} className="w-5 h-5" viewBox="0 0 24 24">
-                                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                                <circle cx={4} cy={4} r={2} stroke="none" />
-                            </svg>
-                        </a>
-                    </span>
-                </div>
-            </div>
-        </footer>
-    )
-}
+      <div className="max-w-6xl mx-auto flex flex-wrap lg:flex-nowrap lg:justify-between gap-8 mt-8">
+        <div className="w-full text-center lg:text-left lg:w-1/4">
+          <h3 className="text-xl font-semibold">Learn More</h3>
+          <ul className="mt-4 space-y-2">
+            <li>
+              <ScrollToTopLink to="/about">About us</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/terms">Terms & conditions</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/privacy-policy">
+                Privacy policy
+              </ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/anti-discrimination-policy">Privacy policy</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/impact">ZR Impact</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/careers">Careers</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/help-centre">Help Centre</ScrollToTopLink>
+            </li>
+          </ul>
+        </div>
+
+        <div className="w-full text-center lg:text-left lg:w-1/4">
+          <h3 className="text-xl font-semibold">For customers</h3>
+          <ul className="mt-4 space-y-2">
+            <li>
+              <ScrollToTopLink to="/reviews">ZR reviews</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/near-me">Categories near you</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/blog">Blog</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/contact-us">Contact us</ScrollToTopLink>
+            </li>
+            <li>
+              <ScrollToTopLink to="/addresses">View addresses</ScrollToTopLink>
+            </li>
+          </ul>
+        </div>
+
+        <div className="w-full text-center lg:text-left lg:w-1/4">
+          <h3 className="text-xl font-semibold">For partners</h3>
+          <ul className="mt-4 space-y-2">
+            <li>
+              <ScrollToTopLink to="https://partner.zytrarelif.com">
+                Register as a professional
+              </ScrollToTopLink>
+            </li>
+          </ul>
+        </div>
+
+        <div className="w-full text-center lg:text-left lg:w-1/4">
+          <h3 className="text-xl font-semibold">Connect With Us</h3>
+          <div className="flex space-x-4 items-center mt-4 justify-center lg:justify-start">
+            <ScrollToTopLink to="https://www.youtube.com/@zytrarelif">
+              <Youtube />
+            </ScrollToTopLink>
+            <ScrollToTopLink to="https://www.instagram.com/zytrarelif/">
+              <Instagram />
+            </ScrollToTopLink>
+            <ScrollToTopLink to="https://www.facebook.com/zytrarelif/">
+              <Facebook />
+            </ScrollToTopLink>
+          </div>
+
+          <p className="mt-4 text-sm sm:text-base">
+            Email:{" "}
+            <a
+              href="mailto:support@example.com"
+              style={{ color: mode === "dark" ? "white" : "" }}
+            >
+              support@zytrarelif.com
+            </a>
+          </p>
+
+          <div className="flex space-x-4 items-center mt-4 justify-center lg:justify-start">
+            <ScrollToTopLink to="/coming-soon">
+              <img
+                src="https://res.cloudinary.com/dt5913iha/image/upload/v1738552821/google-play-badge_oq5sq9.webp"
+                alt="Get it on Google Play"
+              />
+            </ScrollToTopLink>
+            <ScrollToTopLink to="/coming-soon">
+              <img
+                src="https://res.cloudinary.com/dt5913iha/image/upload/v1738552810/app-store-badge_ug87at.webp"
+                alt="Download on the App Store"
+              />
+            </ScrollToTopLink>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 pt-8 border-t max-w-4xl mx-auto text-center">
+        <p className="text-xs">&copy; 2025 ZytraRelif. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

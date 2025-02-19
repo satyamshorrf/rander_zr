@@ -34,7 +34,7 @@ function Cart() {
     setTotalAmount(temp);
   }, [cartItems]);
 
-  const shipping = 100; // Fixed shipping charge
+  const shipping = 10; // Fixed shipping charge
   const grandTotal = shipping + totalAmount;
 
   const deleteCart = (item) => {
@@ -78,9 +78,9 @@ function Cart() {
     const options = {
       key: "rzp_test_kPJlyMHTh9tqYG",
       key_secret: "import.meta.env.VITE_RAZORPAY_KEY_SECRET",
-      amount: grandTotal * 100,
+      amount: grandTotal * 10,
       currency: "INR",
-      name: "E-Bharat",
+      name: "Zytra Relif",
       description: "For testing purpose",
       handler: async function (response) {
         toast.success("Payment Successful");
@@ -194,7 +194,7 @@ function Cart() {
             </div>
             <div className="flex justify-between">
               <p className="text-gray-700" style={{ color: mode === "dark" ? "white" : "" }}>
-                Shipping
+               Platform fee
               </p>
               <p className="text-gray-700" style={{ color: mode === "dark" ? "white" : "" }}>
                 ₹{shipping}

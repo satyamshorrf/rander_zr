@@ -72,7 +72,7 @@ export default function Navbar() {
                     className="text-sm font-medium text-gray-900 "
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
-                    All Products
+                    All Services
                   </Link>
                   <div className="flow-root">
                     <Link
@@ -80,7 +80,7 @@ export default function Navbar() {
                       style={{ color: mode === "dark" ? "white" : "" }}
                       className="-m-2 block p-2 font-medium text-gray-900"
                     >
-                      Order
+                      Bookings
                     </Link>
                   </div>
 
@@ -132,7 +132,7 @@ export default function Navbar() {
                   )}
                 </div>
 
-                <div className="border-t border-gray-200 px-4 py-6">
+                {/* <div className="border-t border-gray-200 px-4 py-6">
                   <a href="#" className="-m-2 flex items-center p-2">
                     <img
                       src="https://ecommerce-sk.vercel.app/img/indiaflag.png"
@@ -147,7 +147,7 @@ export default function Navbar() {
                     </span>
                     <span className="sr-only">, change currency</span>
                   </a>
-                </div>
+                </div> */}
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -206,12 +206,16 @@ export default function Navbar() {
               <div className="ml-4 flex lg:ml-0">
                 <Link to={"/"} className="flex">
                   <div className="flex ">
+                  <img src="https://res.cloudinary.com/dt5913iha/image/upload/v1738552794/ic_launcher_q4uzg5.png" alt="" />
                     <h1
                       className=" text-2xl font-bold text-black  px-2 py-1 rounded"
                       style={{ color: mode === "dark" ? "white" : "" }}
+                      
                     >
-                      E-Bharat
+                  
+                      Zytra Relif
                     </h1>
+             
                   </div>
                 </Link>
               </div>
@@ -223,14 +227,14 @@ export default function Navbar() {
                     className="text-sm font-medium text-gray-700 "
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
-                    All Products
+                    All Services
                   </Link>
                   <Link
                     to={"/order"}
                     className="text-sm font-medium text-gray-700 "
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
-                    Order
+                    Bookings
                   </Link>
 
                   {user?.email === "kumarisapna7263@gmail.com" && (
@@ -277,7 +281,7 @@ export default function Navbar() {
                   )}
                 </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
+                {/* <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
                       src="https://ecommerce-sk.vercel.app/img/indiaflag.png"
@@ -291,7 +295,7 @@ export default function Navbar() {
                       INDIA
                     </span>
                   </a>
-                </div>
+                </div> */}
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
